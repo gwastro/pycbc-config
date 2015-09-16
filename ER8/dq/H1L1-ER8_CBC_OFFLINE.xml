@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE LIGO_LW SYSTEM "http://ldas-sw.ligo.caltech.edu/doc/ligolwAPI/html/ligolw_dtd.txt">
+<?xml-stylesheet type="text/xsl" href="ligolw.xsl" ?>
+<LIGO_LW>
+	<Table Name="process:table">
+		<Column Type="lstring" Name="process:comment"/>
+		<Column Type="lstring" Name="process:node"/>
+		<Column Type="int_4s" Name="process:unix_procid"/>
+		<Column Type="lstring" Name="process:version"/>
+		<Column Type="ilwd:char" Name="process:process_id"/>
+		<Column Type="int_4s" Name="process:start_time"/>
+		<Column Type="lstring" Name="process:username"/>
+		<Column Type="lstring" Name="process:program"/>
+		<Column Type="int_4s" Name="process:end_time"/>
+		<Column Type="lstring" Name="process:ifos"/>
+		<Column Type="lstring" Name="process:cvs_repository"/>
+		<Column Type="int_4s" Name="process:cvs_entry_time"/>
+		<Stream Name="process:table" Type="Local" Delimiter=",">
+			"$Id: H1L1-ER8_CBC_OFFLINE.xml,v 1.12 2015/09/15 19:33:44 nuttall Exp $","olnode04",18175,"$Revision: 1.12 $","process:process_id:1",989656002,"marion","merge_veto_definers",,"H1,L1,V1","$Source: /usr/local/cvs/ligovirgo/cbc/public/segments/ER8/H1L1V1-ER8_CBC_OFFLINE.xml,v $",,
+		</Stream>
+	</Table>
+	<Table Name="veto_definer:table">
+		<Column Type="ilwd:char" Name="veto_definer:process_id"/>
+		<Column Type="lstring" Name="veto_definer:ifo"/>
+		<Column Type="lstring" Name="veto_definer:name"/>
+		<Column Type="int_4s" Name="veto_definer:version"/>
+		<Column Type="int_4s" Name="veto_definer:category"/>
+		<Column Type="int_4s" Name="veto_definer:start_time"/>
+		<Column Type="int_4s" Name="veto_definer:end_time"/>
+		<Column Type="int_4s" Name="veto_definer:start_pad"/>
+		<Column Type="int_4s" Name="veto_definer:end_pad"/>
+		<Column Type="lstring" Name="veto_definer:comment"/>
+		<Stream Name="veto_definer:table" Type="Local" Delimiter=",">
+	    "process:process_id:0","H1","DCH-MISSING_H1_HOFT_C00",1,1,1073779216,0,0,0,"Missing H1 calibrated h(t) data",
+            "process:process_id:0","L1","DCH-MISSING_L1_HOFT_C00",1,1,1075471336,0,0,0,"Missing L1 calibrated h(t) data", 
+            "process:process_id:0","H1","ODC-INJECTION_STOCHASTIC",1,1,1073779216,0,0,0,"Stochastic hardware injections",
+            "process:process_id:0","L1","ODC-INJECTION_STOCHASTIC",1,1,1073779216,0,0,0,"Stochastic hardware injections",
+            "process:process_id:0","H1","ODC-INJECTION_BURST",1,2,1073779216,0,-4,4,"Burst hardware injections",
+            "process:process_id:0","L1","ODC-INJECTION_BURST",1,2,1073779216,0,-4,4,"Burst hardware injections",
+            "process:process_id:0","H1","ODC-INJECTION_DETCHAR",1,2,1073779216,0,-16,16,"Detchar hardware injections",
+            "process:process_id:0","L1","ODC-INJECTION_DETCHAR",1,2,1073779216,0,-16,16,"Detchar hardware injections",
+            "process:process_id:0","H1","ODC-INJECTION_CBC",1,3,1073779216,0,-8,8,"CBC hardware injections",
+            "process:process_id:0","L1","ODC-INJECTION_CBC",1,3,1073779216,0,-8,8,"CBC hardware injections",
+            </Stream>
+	</Table>
+</LIGO_LW>
