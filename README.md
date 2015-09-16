@@ -7,8 +7,9 @@ configuration (ini) files.
 
 The repository is organized by run tag:
 
- * **ER8** Engineering Run 8
- * **O1** Observing Run 1
+ * **S6** Configuration files for reproducing the S6 analysis.
+ * **ER8** Configuration files for Engineering Run 8
+ * **O1** Configuration files for Observing Run 1
 
 with each run containing directories for the configuration files
 
