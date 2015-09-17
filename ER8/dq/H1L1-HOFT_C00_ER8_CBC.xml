@@ -31,10 +31,13 @@
 		<Column Type="int_4s" Name="veto_definer:end_pad"/>
 		<Column Type="lstring" Name="veto_definer:comment"/>
 		<Stream Name="veto_definer:table" Type="Local" Delimiter=",">
-	    "process:process_id:0","H1","DCH-MISSING_H1_HOFT_C00",1,1,1073779216,0,0,0,"Missing H1 calibrated h(t) data",
-            "process:process_id:0","L1","DCH-MISSING_L1_HOFT_C00",1,1,1075471336,0,0,0,"Missing L1 calibrated h(t) data", 
+	    "process:process_id:0","H1","DCH-MISSING_H1_HOFT_C00",2,1,1073779216,0,0,0,"Missing H1 calibrated h(t) data",
+            "process:process_id:0","L1","DCH-MISSING_L1_HOFT_C00",2,1,1075471336,0,0,0,"Missing L1 calibrated h(t) data", 
             "process:process_id:0","H1","ODC-INJECTION_STOCHASTIC",1,1,1073779216,0,0,0,"Stochastic hardware injections",
             "process:process_id:0","L1","ODC-INJECTION_STOCHASTIC",1,1,1073779216,0,0,0,"Stochastic hardware injections",
+            "process:process_id:0","L1","DCH-GDS_C00_BAD_FILTERS",1,1,1126233810,1126238910,0,0,"Bad GDS Filters in C00 data",
+            "process:process_id:0","H1","DCH-RF45_AM_STABILIZATION",1,1,1126304537,1126307500,0,0,"RF45 stabilization issues",
+            "process:process_id:0","H1","DCH-EY_BECKHOFF_CHASSIS_PROBLEM",1,1,1126331060,1126365950,0,0,"Beckhoff chassis problems",  
             "process:process_id:0","H1","ODC-INJECTION_BURST",1,2,1073779216,0,-4,4,"Burst hardware injections",
             "process:process_id:0","L1","ODC-INJECTION_BURST",1,2,1073779216,0,-4,4,"Burst hardware injections",
             "process:process_id:0","H1","ODC-INJECTION_DETCHAR",1,2,1073779216,0,-16,16,"Detchar hardware injections",
