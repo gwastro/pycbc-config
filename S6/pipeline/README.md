@@ -8,9 +8,9 @@ file as reference.
 
 This file is the ihope configuration file used for the final S6D runs documented on the [S6 low-mass re-run page](https://www.lsc-group.phys.uwm.edu/ligovirgo/cbcnote/S6Plan/101104075619AnalysisS6ABC%20low%20mass%20re-runs). The specific file came from <file://sugar.phy.syr.edu/home/spxiwh/S6/all_sky/S6_reruns/S6d_chunk3/968543943-971622087/s6d_lowmass_ihope.ini>
 
-## bigdog_rerun_modern.ini ##
+## s6_run_pycbc_er8_pre_release.ini ##
 
-The configuration file is designed as a rerun over the bigdog analysis period. It uses the more modern pycbc code. 
+The configuration file is designed as a rerun over the bigdog analysis period. It uses the up to date PyCBC code and HDF5 coincidence code.
 
 ### Some differences between original S6 run and this one
 
