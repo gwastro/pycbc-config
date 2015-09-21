@@ -3,6 +3,10 @@
 # This script sets up a Condor DAG for constructing the combined template bank
 # ("uberbank") for offline PyCBC searches in ER8/O1. See
 # https://www.lsc-group.phys.uwm.edu/ligovirgo/cbcnote/ER8/pycbc_offline/combined_bank
+#
+# bash setup_uberbank_construction.sh
+# condor_submit_dag make_uberbank.dag
+#
 # 2015 Tito Dal Canton
 
 set -e
@@ -21,6 +25,8 @@ rm -rf ${CONDORLOG}
 mkdir -p ${CONDORLOG}
 GPSDUR=`expr ${GPSEND} - ${GPSSTART}`
 ORIGDIR=${PWD}
+
+chmod +x wipe_f_final.py
 
 #
 # step 1: geometric
@@ -75,7 +81,7 @@ cat <<EOT >> sbank.sub
 universe = vanilla
 executable = `which lalapps_cbc_sbank`
 arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101101 --user-tag PHENOMD --convergence-threshold 2500 --match-min 0.965 --instrument H1L1 --mass1-min 1 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mchirp-min 1.4 --mchirp-max 1.9587387674162793 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant IMRPhenomD --cache-waveforms --bank-seed ${BANK_STEP1}"
-request_memory = 10000
+request_memory = 12000
 copy_to_spool = False
 getenv = True
 notification = never
@@ -249,7 +255,7 @@ BANK_FINAL=${ORIGDIR}/H1L1-UBERBANK-${GPSSTART}-${GPSDUR}.xml.gz
 
 cat <<EOT >> wipeffinal.sub
 universe = vanilla
-executable = /home/tito/er8/bank/wipe_f_final.py
+executable = ${ORIGDIR}/wipe_f_final.py
 arguments = "${BANK_STEP1_STEP2_STEP3_STEP4} ${BANK_FINAL}"
 request_memory = 1000
 copy_to_spool = False
