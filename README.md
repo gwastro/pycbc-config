@@ -14,6 +14,7 @@ with each run containing directories for the configuration files
 
  * **bank** for template banks used for the run
  * **pipeline** for files related to workflow generation and configuration
+ * **psd** for average noise PSD estimates
 
 Data Quality and veto files can be found at
 
