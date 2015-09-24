@@ -12,6 +12,24 @@ This file is the ihope configuration file used for the final S6D runs documented
 
 The configuration file is designed as a rerun over the bigdog analysis period. It uses the up to date PyCBC code and HDF5 coincidence code.
 
+To generate a workflow to run the analysis from the latest version of the ini files:
+
+ 1. Make a new directory for running the analysis and cd into it
+ 2. Download the file [https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/raw/master/S6/psd/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz]
+ 3. Run the command
+```shell
+pycbc_make_hdf_coinc_workflow --workflow-name s6d_chunk3 --output-dir output \
+--config-files \
+https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/s6_run_pycbc_er8_pre_release.ini \
+https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/executables.ini \
+https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/injections.ini \
+https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/data_S6.ini \
+--config-overrides \
+"tmpltbank:psd-file:`pwd`/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz" \
+"results_page:output-path:${HOME}/public_html/s6/s6d-big-dog-weeks"
+```
+changing the output-path for the results page as appropriate
+
 ### Some differences between original S6 run and this one
 
  1.  exact-match coincidence
