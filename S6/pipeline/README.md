@@ -27,6 +27,7 @@ https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/executables.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/injections.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/data_S6.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/gps_times_s6d_big_dog_two_weeks.ini \
 --config-overrides \
 "tmpltbank:psd-file:`pwd`/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz" \
 "results_page:output-path:${HOME}/public_html/s6/s6d-big-dog-weeks"
