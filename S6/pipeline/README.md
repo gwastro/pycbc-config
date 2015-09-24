@@ -15,15 +15,18 @@ The configuration file is designed as a rerun over the bigdog analysis period. I
 To generate a workflow to run the analysis from the latest version of the ini files:
 
  1. Make a new directory for running the analysis and cd into it
- 2. Download the file https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/raw/master/S6/psd/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz
- 3. Run the command
+ 2. Download the PSD file with 
+```
+curl https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/raw/master/S6/psd/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz > H1L1-AVERAGE_PSD-967593543-1209744.txt.gz
+```
+ 3. Generate the workflow with the command
 ```
 pycbc_make_hdf_coinc_workflow --workflow-name s6d_chunk3 --output-dir output \
 --config-files \
-https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/s6_run_pycbc_er8_pre_release.ini \
-https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/executables.ini \
-https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/injections.ini \
-https://code.pycbc.phy.syr.edu/pycbc-config/pycbc-config/download/master/S6/pipeline/data_S6.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/s6_run_pycbc_er8_pre_release.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/executables.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/injections.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/data_S6.ini \
 --config-overrides \
 "tmpltbank:psd-file:`pwd`/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz" \
 "results_page:output-path:${HOME}/public_html/s6/s6d-big-dog-weeks"
