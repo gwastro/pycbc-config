@@ -11,10 +11,14 @@
 
 set -e
 
-GPSSTART=1126033217
-GPSEND=1126256417
-PSDTXT=/home/tito/er8/noise_psd_estimates/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.txt
-PSDXML=/home/tito/er8/noise_psd_estimates/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.xml.gz
+# base URL to get required files from
+REPOURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/
+# GPS times (mostly just for naming the final bank)
+GPSSTART=1126051217
+GPSEND=1126623617
+# base PSD file name
+PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051217-572400
+
 FLOW=30
 NSBHBOUNDARYMASS=2
 BHSPIN=0.9895
@@ -26,6 +30,15 @@ mkdir -p ${CONDORLOG}
 GPSDUR=`expr ${GPSEND} - ${GPSSTART}`
 ORIGDIR=${PWD}
 
+echo "---- Downloading required files ----"
+
+PSDTXT=${ORIGDIR}/${PSD}.txt
+PSDXML=${ORIGDIR}/${PSD}.xml
+# we could keep them gzipped, but this ensures that the script fails
+# should we hit a download issue and get an HTML page instead
+curl ${REPOURL}/ER8/psd/${PSD}.txt.gz | gunzip > ${PSDTXT}
+curl ${REPOURL}/ER8/psd/${PSD}.xml.gz | gunzip > ${PSDXML}
+curl ${REPOURL}/ER8/bank/wipe_f_final.py > wipe_f_final.py
 chmod +x wipe_f_final.py
 
 #
@@ -80,8 +93,8 @@ cd step2_sbank_phenomd
 cat <<EOT >> sbank.sub
 universe = vanilla
 executable = `which lalapps_cbc_sbank`
-arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101101 --user-tag PHENOMD --convergence-threshold 2500 --match-min 0.965 --instrument H1L1 --mass1-min 1 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mchirp-min 1.4 --mchirp-max 1.9587387674162793 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant IMRPhenomD --cache-waveforms --bank-seed ${BANK_STEP1}"
-request_memory = 12000
+arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101101 --user-tag PHENOMD --convergence-threshold 2500 --match-min 0.965 --instrument H1L1 --mass1-min 1 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mchirp-min 1.4 --mchirp-max 1.9587387674162793 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant IMRPhenomD --cache-waveforms --bank-seed ${BANK_STEP1} --fhigh-max 2048"
+request_memory = 36000
 copy_to_spool = False
 getenv = True
 notification = never
@@ -123,8 +136,8 @@ cd step3_sbank_rom1
 cat <<EOT >> sbank.sub
 universe = vanilla
 executable = `which lalapps_cbc_sbank`
-arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101102 --user-tag ROM1 --convergence-threshold 250 --match-min 0.965 --instrument H1L1 --mass1-min 2 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mtotal-min 4.5 --mtotal-max 100 --mratio-max 97 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant SEOBNRv2_ROM_DoubleSpin --cache-waveforms --bank-seed ${BANK_STEP1_STEP2}"
-request_memory = 10000
+arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101102 --user-tag ROM1 --convergence-threshold 250 --match-min 0.965 --instrument H1L1 --mass1-min 2 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mtotal-min 4.5 --mtotal-max 100 --mratio-max 97 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant SEOBNRv2_ROM_DoubleSpin --cache-waveforms --bank-seed ${BANK_STEP1_STEP2} --fhigh-max 2048"
+request_memory = 36000
 copy_to_spool = False
 getenv = True
 notification = never
@@ -201,6 +214,7 @@ gps-end-time = ${GPSEND}
 convergence-threshold = 2500
 cache-waveforms =
 iterative-match-df-max = 4
+fhigh-max = 2048
 
 [coarse-sbank]
 ; This section is for planning the splitting of the parameter
