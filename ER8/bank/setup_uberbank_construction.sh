@@ -11,10 +11,14 @@
 
 set -e
 
-GPSSTART=1126033217
-GPSEND=1126256417
-PSDTXT=/home/tito/er8/noise_psd_estimates/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.txt
-PSDXML=/home/tito/er8/noise_psd_estimates/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.xml.gz
+# base URL to get required files from
+REPOURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/
+# GPS times (mostly just for naming the final bank)
+GPSSTART=1126051217
+GPSEND=1126623617
+# base PSD file name
+PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051217-572400
+
 FLOW=30
 NSBHBOUNDARYMASS=2
 BHSPIN=0.9895
@@ -26,6 +30,15 @@ mkdir -p ${CONDORLOG}
 GPSDUR=`expr ${GPSEND} - ${GPSSTART}`
 ORIGDIR=${PWD}
 
+echo "---- Downloading required files ----"
+
+PSDTXT=${ORIGDIR}/${PSD}.txt
+PSDXML=${ORIGDIR}/${PSD}.xml
+# we could keep them gzipped, but this ensures that the script fails
+# should we hit a download issue and get an HTML page instead
+curl ${REPOURL}/ER8/psd/${PSD}.txt.gz | gunzip > ${PSDTXT}
+curl ${REPOURL}/ER8/psd/${PSD}.xml.gz | gunzip > ${PSDXML}
+curl ${REPOURL}/ER8/bank/wipe_f_final.py > wipe_f_final.py
 chmod +x wipe_f_final.py
 
 #
