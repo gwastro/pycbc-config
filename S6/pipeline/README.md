@@ -19,12 +19,16 @@ To generate a workflow to run the analysis from the latest version of the ini fi
 ```
 curl https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/raw/master/S6/psd/H1L1-AVERAGE_PSD-967593543-1209744.txt.gz > H1L1-AVERAGE_PSD-967593543-1209744.txt.gz
 ```
- 3. Generate the workflow with the command
+ 3. Set the appropriate version of the executables
+```
+export VERSION=v1.1.5/x86_64/composer_xe_2015.0.090
+```
+ 4. Generate the workflow with the command
 ```
 pycbc_make_hdf_coinc_workflow --workflow-name s6d_chunk3 --output-dir output \
 --config-files \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/s6_run_pycbc_er8_pre_release.ini \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/executables.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/raw/master/${VERSION}/executables.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/injections.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/data_S6.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/S6/pipeline/gps_times_s6d_big_dog_two_weeks.ini \
