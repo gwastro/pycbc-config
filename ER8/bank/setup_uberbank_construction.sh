@@ -181,12 +181,12 @@ cat <<EOT >> config.ini
 ; This section points to the executables, and provides condor options
 universe = vanilla
 lalapps_cbc_sbank = `which lalapps_cbc_sbank`
-lalapps_cbc_sbank_splitter = `which lalapps_cbc_sbank_splitter`
+lalapps_cbc_sbank_splitter = /bin/true
 lalapps_cbc_sbank_choose_mchirp_boundaries = `which lalapps_cbc_sbank_choose_mchirp_boundaries`
-lalapps_cbc_sbank_sim = `which lalapps_cbc_sbank_sim`
-lalapps_cbc_sbank_plot_sim = `which lalapps_cbc_sbank_plot_sim`
-lalapps_cbc_sbank_merge_sims = `which lalapps_cbc_sbank_merge_sims`
-lalapps_inspinj = `which lalapps_inspinj`
+lalapps_cbc_sbank_sim = /bin/true
+lalapps_cbc_sbank_plot_sim = /bin/true
+lalapps_cbc_sbank_merge_sims = /bin/true
+lalapps_inspinj = /bin/true
 
 [sbank]
 ; This section contains the parameters of the entire bank parameter
