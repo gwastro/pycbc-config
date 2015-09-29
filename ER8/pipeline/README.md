@@ -36,7 +36,7 @@ To generate a workflow to run the analysis from the latest version of the ini fi
  1. Make a new directory for running the analysis and cd into it
  2. Generate the workflow with the command
 ```
-pycbc_make_hdf_coinc_workflow --workflow-name er8b --output-dir output \
+pycbc_make_coinc_search_workflow --workflow-name er8b --output-dir output \
 --config-files \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/3a0fc682b521579f225249a092e39665db3681b4/ER8/pipeline/analysis.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/3a0fc682b521579f225249a092e39665db3681b4/ER8/pipeline/data_er8.ini \
