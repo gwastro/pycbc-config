@@ -38,11 +38,11 @@ To generate a workflow to run the analysis from the latest version of the ini fi
 ```
 pycbc_make_coinc_search_workflow --workflow-name er8b --output-dir output \
 --config-files \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/5abf26f2fed9f73e6ec50d8fe9186bcf655f65dc/ER8/pipeline/analysis.ini \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/5abf26f2fed9f73e6ec50d8fe9186bcf655f65dc/ER8/pipeline/data_er8.ini \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/5abf26f2fed9f73e6ec50d8fe9186bcf655f65dc/ER8/pipeline/gps_times_er8b.ini \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/5abf26f2fed9f73e6ec50d8fe9186bcf655f65dc/ER8/pipeline/plotting.ini \
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/5abf26f2fed9f73e6ec50d8fe9186bcf655f65dc/ER8/pipeline/injections_minimal.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/d745f5089cfd7f19b917bd54f725f83655db6061/ER8/pipeline/analysis.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/d745f5089cfd7f19b917bd54f725f83655db6061/ER8/pipeline/data_er8.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/d745f5089cfd7f19b917bd54f725f83655db6061/ER8/pipeline/gps_times_er8b.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/d745f5089cfd7f19b917bd54f725f83655db6061/ER8/pipeline/plotting.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/d745f5089cfd7f19b917bd54f725f83655db6061/ER8/pipeline/injections_minimal.ini \
 https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/ER8/pipeline/excutables.ini \
 --config-overrides \
 "results_page:output-path:${HOME}/public_html/er8/er8b"
