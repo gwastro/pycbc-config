@@ -32,7 +32,7 @@ changing the output-path for the results page as appropriate.
 For production runs replace the executables.ini line with
 
 ```
-https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/raw/master/v1.2.0/x86_64/composer_xe_2015.0.090/executables.ini \
+https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/download/master/v1.2.0/x86_64/composer_xe_2015.0.090/executables.ini \
 ```
 
 ### Some differences between original S6 run and this one
