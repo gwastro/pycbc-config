@@ -15,10 +15,10 @@ set -e
 REPOURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/
 SWURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/download/master/v1.2.0/x86_64/composer_xe_2015.0.090
 # GPS times (mostly just for naming the final bank)
-GPSSTART=1126051217
-GPSEND=1126623617
+GPSSTART=1126051216
+GPSEND=1127271616
 # base PSD file name
-PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051217-572400
+PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051216-1220400
 
 FLOW=30
 NSBHBOUNDARYMASS=2
