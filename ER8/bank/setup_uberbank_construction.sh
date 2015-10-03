@@ -11,13 +11,14 @@
 
 set -e
 
-# base URL to get required files from
+# base URLs to get required files from
 REPOURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/
+SWURL=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/download/master/v1.2.0/x86_64/composer_xe_2015.0.090
 # GPS times (mostly just for naming the final bank)
-GPSSTART=1126051217
-GPSEND=1126623617
+GPSSTART=1126051216
+GPSEND=1127271616
 # base PSD file name
-PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051217-572400
+PSD=H1L1-ER8B_HARM_MEAN_PSD-1126051216-1220400
 
 FLOW=30
 NSBHBOUNDARYMASS=2
@@ -38,8 +39,19 @@ PSDXML=${ORIGDIR}/${PSD}.xml
 # should we hit a download issue and get an HTML page instead
 curl ${REPOURL}/ER8/psd/${PSD}.txt.gz | gunzip > ${PSDTXT}
 curl ${REPOURL}/ER8/psd/${PSD}.xml.gz | gunzip > ${PSDXML}
+
+# get executables
 curl ${REPOURL}/ER8/bank/wipe_f_final.py > wipe_f_final.py
 chmod +x wipe_f_final.py
+curl ${SWURL}/pycbc_geom_aligned_bank > pycbc_geom_aligned_bank
+chmod +x pycbc_geom_aligned_bank
+curl ${SWURL}/lalapps_cbc_sbank > lalapps_cbc_sbank
+chmod +x lalapps_cbc_sbank
+curl ${SWURL}/lalapps_cbc_sbank_pipe > lalapps_cbc_sbank_pipe
+chmod +x lalapps_cbc_sbank_pipe
+lalapps_cbc_sbank_choose_mchirp_boundaries
+curl ${SWURL}/lalapps_cbc_sbank_choose_mchirp_boundaries > lalapps_cbc_sbank_choose_mchirp_boundaries
+chmod +x lalapps_cbc_sbank_choose_mchirp_boundaries
 
 #
 # step 1: geometric
@@ -52,7 +64,7 @@ BANK_STEP1=${ORIGDIR}/step1_geom/geom.xml.gz
 mkdir step1_geom
 cd step1_geom
 
-pycbc_geom_aligned_bank \
+${ORIGDIR}/pycbc_geom_aligned_bank \
     --write-metric \
     --log-path ${CONDORLOG} \
     --psd-file ${PSDTXT} \
@@ -92,7 +104,7 @@ cd step2_sbank_phenomd
 
 cat <<EOT >> sbank.sub
 universe = vanilla
-executable = `which lalapps_cbc_sbank`
+executable = ${ORIGDIR}/lalapps_cbc_sbank
 arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101101 --user-tag PHENOMD --convergence-threshold 2500 --match-min 0.965 --instrument H1L1 --mass1-min 1 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mchirp-min 1.4 --mchirp-max 1.9587387674162793 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant IMRPhenomD --cache-waveforms --bank-seed ${BANK_STEP1} --fhigh-max 2048"
 request_memory = 36000
 copy_to_spool = False
@@ -135,7 +147,7 @@ cd step3_sbank_rom1
 
 cat <<EOT >> sbank.sub
 universe = vanilla
-executable = `which lalapps_cbc_sbank`
+executable = ${ORIGDIR}/lalapps_cbc_sbank
 arguments = "--iterative-match-df-max 4 --gps-start-time ${GPSSTART} --gps-end-time ${GPSEND} --reference-psd ${PSDXML} --seed 101102 --user-tag ROM1 --convergence-threshold 250 --match-min 0.965 --instrument H1L1 --mass1-min 2 --mass1-max 99 --mass2-min 1 --mass2-max 99 --mtotal-min 4.5 --mtotal-max 100 --mratio-max 97 --ns-bh-boundary-mass ${NSBHBOUNDARYMASS} --bh-spin-min -${BHSPIN} --bh-spin-max ${BHSPIN} --ns-spin-min -${NSSPIN} --ns-spin-max ${NSSPIN} --aligned-spin --flow ${FLOW} --approximant SEOBNRv2_ROM_DoubleSpin --cache-waveforms --bank-seed ${BANK_STEP1_STEP2} --fhigh-max 2048"
 request_memory = 36000
 copy_to_spool = False
@@ -180,13 +192,13 @@ cat <<EOT >> config.ini
 [condor]
 ; This section points to the executables, and provides condor options
 universe = vanilla
-lalapps_cbc_sbank = `which lalapps_cbc_sbank`
-lalapps_cbc_sbank_splitter = `which lalapps_cbc_sbank_splitter`
-lalapps_cbc_sbank_choose_mchirp_boundaries = `which lalapps_cbc_sbank_choose_mchirp_boundaries`
-lalapps_cbc_sbank_sim = `which lalapps_cbc_sbank_sim`
-lalapps_cbc_sbank_plot_sim = `which lalapps_cbc_sbank_plot_sim`
-lalapps_cbc_sbank_merge_sims = `which lalapps_cbc_sbank_merge_sims`
-lalapps_inspinj = `which lalapps_inspinj`
+lalapps_cbc_sbank = ${ORIGDIR}/lalapps_cbc_sbank
+lalapps_cbc_sbank_splitter = /bin/true
+lalapps_cbc_sbank_choose_mchirp_boundaries = ${ORIGDIR}/lalapps_cbc_sbank_choose_mchirp_boundaries
+lalapps_cbc_sbank_sim = /bin/true
+lalapps_cbc_sbank_plot_sim = /bin/true
+lalapps_cbc_sbank_merge_sims = /bin/true
+lalapps_inspinj = /bin/true
 
 [sbank]
 ; This section contains the parameters of the entire bank parameter
@@ -248,7 +260,7 @@ mchirp-max = 43.52752816480620600
 [injections]
 EOT
 
-lalapps_cbc_sbank_pipe \
+${ORIGDIR}/lalapps_cbc_sbank_pipe \
     --config-file config.ini \
     --bank-seed ${BANK_STEP1_STEP2_STEP3}
 
