@@ -39,82 +39,37 @@ The ``make_gates.sh`` script reports times for which you requested omicron trigg
  * [1126771360 ... 1126771418) lock-loss bleeding into last omicron segment caused error message ``Otile::SaveTriggers: number of tiles above SNR threshold = 1002105 > 1000000 (L1:GDS-CALIB_STRAIN) --> do not save segment 1126771360.00000-1126771418.00000``. These data have been CAT1 vetoed for the C00 run. A new CAT1 flag just containing the lock-loss time will be made for the C01 run and omicron re-run.
 
 
-## Gating files for ER8A Chunk 2
 
-Test gating files for ER8A. Made using omicron and [https://github.com/samantha-usman/gating/blob/master/make_gating_from_omicron]
+## Gating files for ER8A [1123858817, 1126051217)
 
-* H1-gating_SNR300-1125217722-574295.txt.gz
-* L1-gating_SNR300-1125217722-574295.txt.gz
+Production gating files for ER8A:
 
-### H1-gating_SNR300-1125217722-574295.txt.gz
+ * H1-gating_SNR300-1123858817-2192400.txt.gz
+ * L1-gating_SNR300-1123858817-2192400.txt.gz
 
-```shell
-ligolw_segment_query_dqsegdb --segment-url https://segments.ligo.org --query-segments --include-segments H1:DMT-ANALYSIS_READY:1 --exclude-segments H1:DCH-MISSING_H1_HOFT_C00:2 --gps-start-time 1123858817 --gps-end-time `lalapps_tconvert now` --output H1-SEGMENTS.xml
-ligo_data_find --gps-start-time 1123858817 --gps-end-time `lalapps_tconvert now` --type H1_HOFT_C00 --lal-cache --observatory H --url-type file > cache.lcf
-make_gating_from_omicron --start 1125217722 --end 1125792017 --ifo H1 --min-snr 300 --zeros 0.25 --pad 0.25 --cache-file omicron.lcf --verbose
-```
+### H1
 
-```C++
-// ------------------------------------------------------------------
-// Omicron (v2r1) option file generated on Mon Sep 21 08:00:49 CDT 2015
-// Configuration type = GW
-// ------------------------------------------------------------------
+Some segments did not have omicron triggers (and thus gating vetoes) generated.
+The following segments were too short to be analyzed:
+ * [1123880003, 1123880059) [lock #0](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150817/lock/segments/)
+ * [1124013150, 1124013175) [lock #0](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150819/lock/segments/)
+ * [1124736864, 1124737190) [lock #3](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150827/lock/segments/)
+ * [1125331900, 1125331905) [lock #3](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150903/lock/segments/)
+ * [1125436795, 1125436828) [lock #3](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150904/lock/segments/)
 
-DATA       FFL              /home/samantha.usman/aligo/er8/omicron/H1/frames.lcf
-DATA       CHANNELS         H1:GDS-CALIB_STRAIN
-DATA       SAMPLEFREQUENCY  8192
+The following segments were not analyzed for unknown reasons (possibly too many triggers generated):
+ * [1124729972, 1124733823) [lock #1](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150827/lock/segments/)
+ * [1125331969, 1125342495) [lock #4](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150903/lock/segments/)
+ * [1126038417, 1126040953) [lock #3](https://ldas-jobs.ligo-wa.caltech.edu/~detchar/summary/day/20150911/lock/segments/)
 
-PARAMETER  CHUNKDURATION    544
-PARAMETER  SEGMENTDURATION  64
-PARAMETER  OVERLAPDURATION  4
-PARAMETER  QRANGE           3.3166  100.0
-PARAMETER  FREQUENCYRANGE   32  4096
-PARAMETER  MISMATCHMAX      0.2
-PARAMETER  SNRTHRESHOLD     5
+### L1
 
-OUTPUT     PRODUCTS         triggers
-OUTPUT     VERBOSITY        0
-OUTPUT     FORMAT           rootxml
+Some segments did not have omicron triggers (and thus gating vetoes) generated.
+The following segments were too short to be analyzed:
+ * [1123862895, 1123862916) [lock #2](https://ldas-jobs.ligo-la.caltech.edu/~detchar/summary/day/20150817/lock/segments/) 
+ * [1125278488, 1125278506) [lock #1](https://ldas-jobs.ligo-la.caltech.edu/~detchar/summary/day/20150903/lock/segments/)
+ * [1125341380, 1125341383) [lock #9](https://ldas-jobs.ligo-la.caltech.edu/~detchar/summary/day/20150911/lock/segments/)
 
-// clustering is only applied to XML
-PARAMETER  CLUSTERING       TIME
-
-
-OUTPUT  DIRECTORY  /home/samantha.usman/aligo/er8/omicron/H1/triggers
-```
-
-### L1-gating_SNR300-1125217722-574295.txt.gz
-
-```shell
-ligolw_segment_query_dqsegdb --segment-url https://segments.ligo.org --query-segments --include-segments L1:DMT-ANALYSIS_READY:1 --exclude-segments L1:DCH-MISSING_L1_HOFT_C00:2 --gps-start-time 1123858817 --gps-end-time `lalapps_tconvert now` --output L1-SEGMENTS.xml
-ligo_data_find --gps-start-time 1123858817 --gps-end-time `lalapps_tconvert now` --type L1_HOFT_C00 --lal-cache --observatory L --url-type file > frames.lcf
-make_gating_from_omicron --start 1125217722 --end 1125792017 --ifo L1 --min-snr 300 --zeros 0.25 --pad 0.25 --cache-file omicron.lcf --verbose
-```
-
-```C++
-// ------------------------------------------------------------------
-// Omicron (v2r1) option file generated on Mon Sep 21 08:00:49 CDT 2015
-// Configuration type = GW
-// ------------------------------------------------------------------
-
-DATA       FFL              /home/samantha.usman/aligo/er8/omicron/L1/frames.lcf
-DATA       CHANNELS         L1:GDS-CALIB_STRAIN
-DATA       SAMPLEFREQUENCY  8192
-
-PARAMETER  CHUNKDURATION    544
-PARAMETER  SEGMENTDURATION  64
-PARAMETER  OVERLAPDURATION  4
-PARAMETER  QRANGE           3.3166  100.0
-PARAMETER  FREQUENCYRANGE   32  4096
-PARAMETER  MISMATCHMAX      0.2
-PARAMETER  SNRTHRESHOLD     5
-
-OUTPUT     PRODUCTS         triggers
-OUTPUT     VERBOSITY        0
-OUTPUT     FORMAT           rootxml
-
-// clustering is only applied to XML
-PARAMETER  CLUSTERING       TIME
-
-OUTPUT  DIRECTORY  /home/samantha.usman/aligo/er8/omicron/L1/triggers
-```
+The following segments were, analyzed, unknown reasons (possibly too many triggers generated):
+ * [1125112876, 1125116644) [lock #0](https://ldas-jobs.ligo-la.caltech.edu/~detchar/summary/day/20150901/lock/segments/)
+ * [1125301863, 1125309093) [lock #3](https://ldas-jobs.ligo-la.caltech.edu/~detchar/summary/day/20150903/lock/segments/)
