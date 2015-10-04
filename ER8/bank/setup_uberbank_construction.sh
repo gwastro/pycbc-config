@@ -49,7 +49,6 @@ curl ${SWURL}/lalapps_cbc_sbank > lalapps_cbc_sbank
 chmod +x lalapps_cbc_sbank
 curl ${SWURL}/lalapps_cbc_sbank_pipe > lalapps_cbc_sbank_pipe
 chmod +x lalapps_cbc_sbank_pipe
-lalapps_cbc_sbank_choose_mchirp_boundaries
 curl ${SWURL}/lalapps_cbc_sbank_choose_mchirp_boundaries > lalapps_cbc_sbank_choose_mchirp_boundaries
 chmod +x lalapps_cbc_sbank_choose_mchirp_boundaries
 
