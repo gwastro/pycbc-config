@@ -45,6 +45,10 @@ curl ${REPOURL}/ER8/bank/wipe_f_final.py > wipe_f_final.py
 chmod +x wipe_f_final.py
 curl ${SWURL}/pycbc_geom_aligned_bank > pycbc_geom_aligned_bank
 chmod +x pycbc_geom_aligned_bank
+curl ${SWURL}/pycbc_geom_aligned_2dstack > pycbc_geom_aligned_2dstack
+chmod +x pycbc_geom_aligned_2dstack
+curl ${SWURL}/pycbc_aligned_bank_cat > pycbc_aligned_bank_cat
+chmod +x pycbc_aligned_bank_cat
 curl ${SWURL}/lalapps_cbc_sbank > lalapps_cbc_sbank
 chmod +x lalapps_cbc_sbank
 curl ${SWURL}/lalapps_cbc_sbank_pipe > lalapps_cbc_sbank_pipe
@@ -59,6 +63,10 @@ chmod +x lalapps_cbc_sbank_choose_mchirp_boundaries
 echo "---- Setting up geometric step ----"
 
 BANK_STEP1=${ORIGDIR}/step1_geom/geom.xml.gz
+# this is needed in order for pycbc_geom_aligned_bank
+# to find the executables it needs for the DAG
+OLDPATH=${PATH}
+PATH=${ORIGDIR}:${PATH}
 
 mkdir step1_geom
 cd step1_geom
@@ -84,6 +92,8 @@ ${ORIGDIR}/pycbc_geom_aligned_bank \
     --min-match 0.97 \
     --pn-order threePointFivePN \
     --verbose
+
+PATH=${OLDPATH}
 
 # set accounting group
 sed -i 's/queue 1/accounting_group = ligo.prod.o1.cbc.nsbh.pycbcoffline\n&/' *.sub
