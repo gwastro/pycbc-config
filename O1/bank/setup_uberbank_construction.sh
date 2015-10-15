@@ -37,11 +37,11 @@ PSDTXT=${ORIGDIR}/${PSD}.txt
 PSDXML=${ORIGDIR}/${PSD}.xml
 # we could keep them gzipped, but this ensures that the script fails
 # should we hit a download issue and get an HTML page instead
-curl ${REPOURL}/ER8/psd/${PSD}.txt.gz | gunzip > ${PSDTXT}
-curl ${REPOURL}/ER8/psd/${PSD}.xml.gz | gunzip > ${PSDXML}
+curl ${REPOURL}/O1/psd/${PSD}.txt.gz | gunzip > ${PSDTXT}
+curl ${REPOURL}/O1/psd/${PSD}.xml.gz | gunzip > ${PSDXML}
 
 # get executables
-curl ${REPOURL}/ER8/bank/wipe_f_final.py > wipe_f_final.py
+curl ${REPOURL}/O1/bank/wipe_f_final.py > wipe_f_final.py
 chmod +x wipe_f_final.py
 curl ${SWURL}/pycbc_geom_aligned_bank > pycbc_geom_aligned_bank
 chmod +x pycbc_geom_aligned_bank
