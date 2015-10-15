@@ -40,7 +40,7 @@ To generate a workflow to run the analysis from the latest version of the ini fi
 
 ```
 RUN_NAME=er8b
-INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master
+INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/pipeline
 
 pycbc_make_coinc_search_workflow --workflow-name $RUN_NAME --output-dir output \
 --config-files \
@@ -49,7 +49,7 @@ $INI_PREFIX/data.ini \
 $INI_PREFIX/gps_times_O1_analysis_1.ini \
 $INI_PREFIX/plotting.ini \
 $INI_PREFIX/injections_minimal.ini \
-$INI_PREFIX/excutables.ini \
+$INI_PREFIX/executables.ini \
 --config-overrides \
 "results_page:output-path:${HOME}/public_html/er8/er8b"
 ```
