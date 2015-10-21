@@ -47,7 +47,7 @@ WORKFLOW_NAME=o1-analysis3
 ```
 OUTPUT_PATH=${HOME}/public_html/o1/o1-analysis3
 ```
- 1. Determine the path to the pipeline configuration ini files that you want use from the pipeline configuration repository and set the shell variable ```INI_PREFIX``` to the directory containing these files. To get the latest versions you can use
+ 1. Determine the path to the pipeline configuration ini files that you want to use from the pipeline configuration repository and set the shell variable ```INI_PREFIX``` to the directory containing these files. To get the latest versions you can use
 ```
 INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/pipeline
 ```
