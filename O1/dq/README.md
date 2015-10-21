@@ -110,3 +110,10 @@ The following segment was too short to analyse by omicron (part of a 33 second s
 ### L1
 
 No missing omicron triggers.
+
+Production gating files for ER8B 15 day background extrension
+
+ * H1-gating_SNR300-1126051217-1129294817.txt.gz
+ * L1-gating_SNR300-1126051217-1129294817.txt.gz
+
+These files were created by combining the ER8B and Analysis 2 and 3 gating files.
