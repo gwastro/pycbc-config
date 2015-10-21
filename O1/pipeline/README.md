@@ -51,7 +51,7 @@ OUTPUT_PATH=${HOME}/public_html/o1/o1-analysis3
 ```
 INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/pipeline
 ```
-or to obtain a specific version for an analysis, you can change ```master`` to a git SHA hash, for example
+or to obtain a specific version for an analysis, you can change ```master``` to a git SHA hash, for example
 ```
 INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/3d131118c27cf22d3b4c136d3f28c7e0fc6f9334/O1/pipeline
 ```
@@ -82,6 +82,7 @@ ${EXEC_INI} \
 --config-overrides \
 "results_page:output-path:${OUTPUT_PATH}"
 ```
+
 ## Submitting the workflow ##
 
 If you are not re-using data from a previous run, submit the workflow with the commands.
@@ -98,4 +99,3 @@ If you want to re-use data from a previous workflow, you need to make a cache fi
 ```
 ./pycbc_submit_dax --accounting-group ligo.prod.o1.cbc.bbh.pycbcoffline --dax ${WORKFLOW_NAME}.dax --cache reuse_data.map
 ```
-
