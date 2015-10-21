@@ -95,7 +95,7 @@ chmod +x pycbc_submit_dax
 
 ## Reusing data from a previous workflow ##
 
-If you want to re-use data from a previous workflow, you need to make a cache file containing the files that you want to re-use. Locate the file ```main.map``` in the output directory of your previous workflow and copy it to the workflow directory for you new worflow **with a different name**. Do not overwrite the ```main.map``` created by the new workflow.  Edit this file to contain only the data that you want to keep. Then pass it to the submission script with the ```--cache``` option, e.g.
+If you want to re-use data from a previous workflow, you need to make a cache file containing the files that you want to re-use. Locate the file ```main.map``` in the output directory of your previous workflow and copy it to the workflow directory for you new worflow **with a different name**, e.g. ```reuse_data.map```. Do not overwrite the ```main.map``` created by the new workflow.  Edit this file to contain only the data that you want to keep. Then pass it to the submission script with the ```--cache``` option, e.g.
 ```
 ./pycbc_submit_dax --accounting-group ligo.prod.o1.cbc.bbh.pycbcoffline --dax ${WORKFLOW_NAME}.dax --cache reuse_data.map
 ```
