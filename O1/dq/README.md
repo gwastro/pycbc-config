@@ -99,8 +99,8 @@ Missing omicron triggers due to problems at the end of a lockloss (which are CAT
 
 Production gating files for O1 Analysis 3:
 
- * H1-gating_SNR300-1128299417-995400.txt.gz
- * L1-gating_SNR300-1128299417-995400.txt.gz
+ * H1-gating_SNR300-1128299417-1083600.txt.gz
+ * L1-gating_SNR300-1128299417-1083600.txt.gz
 
 ### H1 
 
@@ -113,7 +113,7 @@ No missing omicron triggers.
 
 Production gating files for ER8B 15 day background extrension
 
- * H1-gating_SNR300-1126051217-1129294817.txt.gz
- * L1-gating_SNR300-1126051217-1129294817.txt.gz
+ * H1-gating_SNR300-1126051217-1129383017.txt.gz
+ * L1-gating_SNR300-1126051217-1129383017.txt.gz
 
 These files were created by combining the ER8B and Analysis 2 and 3 gating files.
