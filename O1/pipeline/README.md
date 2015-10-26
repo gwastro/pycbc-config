@@ -104,6 +104,34 @@ chmod +x pycbc_submit_dax
 ./pycbc_submit_dax --accounting-group ligo.prod.o1.cbc.bbh.pycbcoffline --dax ${WORKFLOW_NAME}.dax 
 ```
 
+## Using pegasus-dashboard to check status of the workflow ##
+
+You can use pegasus-dashboard to monitor the status of your workflow. You can find a summary of all of the workflows you have run at:
+
+ * On atlas:
+```
+https://atlas${X}.atlas.aei.uni-hannover.de/pegasus/u/${USER_NAME}/
+```
+where ```${X}``` is the number of the machine from which you submited your dax (e.g., ```atlas8```) and ```${USER_NAME}``` is your user name on atlas.
+
+ * On sugar:
+```
+https://sugar.phy.syr.edu/pegasus/u/${USER_NAME}/
+```
+where ```${USER_NAME}``` is your user name on sugar.
+
+The workflow label in the table corresponds to the ```WORKFLOW_NAME``` you used when submitting the dax. Click on the one you used for this workflow;
+that will take you to a summary of the jobs.
+
+**Note:** If you have not used pegasus-dashboard before, those pages may not load for you. If so, log into the cluster and run the following:
+
+```
+chmod go+rx ~/.pegasus
+chmod go+r ~/.pegasus/workflow.db
+```
+
+Then reload the page in your browser.
+
 ## Reusing data from a previous workflow ##
 
 If you want to re-use data from a previous workflow, you need to make a cache file containing the files that you want to re-use. Locate the file ```main.map``` in the output directory of your previous workflow and copy it to the workflow directory for you new worflow **with a different name**, e.g. ```reuse_data.map```. Do not overwrite the ```main.map``` created by the new workflow.  Edit this file to contain only the data that you want to keep. Then pass it to the submission script with the ```--cache``` option, e.g.
