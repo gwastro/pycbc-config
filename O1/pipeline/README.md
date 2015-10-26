@@ -10,10 +10,11 @@ The files, see https://www.lsc-group.phys.uwm.edu/ligovirgo/cbcnote/PyCBC/O1Sear
  * gps_times_O1_analysis_0.ini
  * gps_times_O1_analysis_1.ini
  * gps_times_O1_analysis_2.ini
+ * gps_times_O1_analysis_3.ini
 
 
 Contain the correct GPS time intervals and links to veto definer files for
-ER8A and ER8B. Select the approriate file, depending on the analysis times. The file
+ER8B and O1. Select the approriate file, depending on the analysis times. The file
 
  * data.ini
 
@@ -67,6 +68,16 @@ EXEC_INI=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/download/master/
 ```
 GPS_INI=${INI_PREFIX}/gps_times_O1_analysis_3.ini
 ```
+ 1. To avoid that your proxy certificate gets deleted when you log out of the cluster, create a new proxy with your uid in the filename running
+```
+unset X509_USER_PROXY
+ligo-proxy-init your.name
+```
+ 1. Ask the cluster admins for the ROM data path in a specific cluster and set that path in your environment
+```
+export LAL_DATA_PATH=<full-ROM-data-path>:${LAL_DATA_PATH}
+```
+Make sure to source your new environment to make the change effective.
  1. Generate the workflow by running the command
 ```
 globus-url-copy -vb gsiftp://pycbc.phy.syr.edu/var/opt/gitlab/ligo-cbc/pycbc-software/v1.2.3/x86_64/composer_xe_2015.0.090/pycbc_make_coinc_search_workflow file://`pwd`/pycbc_make_coinc_search_workflow 
