@@ -77,7 +77,7 @@ ligo-proxy-init your.name
 ```
 export LAL_DATA_PATH=<full-ROM-data-path>:${LAL_DATA_PATH}
 ```
-Make sure to source your new environment to make the change effective.
+Note: if you decide to set the path in your .bash_profile, make sure to run "source .bash_profile" to make the change effective.
  1. Generate the workflow by running the command
 ```
 globus-url-copy -vb gsiftp://pycbc.phy.syr.edu/var/opt/gitlab/ligo-cbc/pycbc-software/v1.2.3/x86_64/composer_xe_2015.0.090/pycbc_make_coinc_search_workflow file://`pwd`/pycbc_make_coinc_search_workflow 
