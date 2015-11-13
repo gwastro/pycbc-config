@@ -17,7 +17,7 @@ ${TEST_INI_PREFIX}/short_gps_interval.ini \
 --config-overrides \
 "results_page:output-path:${OUTPUT_PATH}" \
 "workflow-coincidence:background-bins:bns:chirp:1.74 edge:SEOBNRv2Peak:220 bulk:total:150" \
-"workflow-tmpltbank:tmpltbank-pregenerated-bank:https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test/H1L1-SMALL_TEST_BANK-1129383017-1371600.xml.gz"
+"workflow-tmpltbank:tmpltbank-pregenerated-bank:https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test/H1L1-BIG_TEST_BANK-1129383017-1371600.xml.gz"
 
 cd output/
 
@@ -26,9 +26,4 @@ pycbc_submit_dax --accounting-group ligo.dev.o1.cbc.bbh.pycbcoffline --dax test-
 To test in non-shared filesystem mode, add the argument 
 ```shell
 --append-pegasus-property 'pegasus.data.configuration=nonsharedfs'
-```
-
-A larger test bank is available with the override
-```shell
-"workflow-tmpltbank:tmpltbank-pregenerated-bank:https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test/H1L1-BIG_TEST_BANK-1129383017-1371600.xml.gz"
 ```
