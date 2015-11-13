@@ -5,7 +5,7 @@ commands:
 ```shell
 INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/pipeline
 TEST_INI_PREFIX=https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test
-pycbc_make_coinc_search_workflow --workflow-name test-workflow
+pycbc_make_coinc_search_workflow --workflow-name test-workflow \
 --output-dir output \
 --config-files \
 ${INI_PREFIX}/executables.ini \
@@ -31,4 +31,3 @@ A larger test bank is available with the override
 ```shell
 "workflow-tmpltbank:tmpltbank-pregenerated-bank:https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test/H1L1-BIG_TEST_BANK-1129383017-1371600.xml.gz"
 ```
-
