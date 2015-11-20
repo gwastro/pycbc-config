@@ -125,6 +125,11 @@ Production gating files for GW150914 16 coincident day analysis including C01 an
   * H1-gating_C00_SNR300-1128384017-910800.txt.gz
   * L1-gating_C00_SNR300-1128384017-910800.txt.gz
 
+The concatenated files are:
+
+  * H1-gating_C01C00_SNR300-1126051217-1129383017.txt.gz
+  * L1-gating_C01C00_SNR300-1126051217-1129383017.txt.gz
+
 ### H1
 
 C01 gating file:
@@ -170,3 +175,5 @@ The following segments had no omicron triggers because of a loug glitch right be
 C00 gating files:
 
 No missing gating files
+
+
