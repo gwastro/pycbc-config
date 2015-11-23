@@ -122,8 +122,8 @@ Production gating files for GW150914 16 coincident day analysis including C01 an
 
   * H1-gating_C01_SNR300-1126051217-2332800.txt.gz
   * L1-gating_C01_SNR300-1126051217-2332800.txt.gz
-  * H1-gating_C00_SNR300-1128384017-910800.txt.gz
-  * L1-gating_C00_SNR300-1128384017-910800.txt.gz
+  * H1-gating_C00_SNR300-1128384017-999000.txt.gz
+  * L1-gating_C00_SNR300-1128384017-999000.txt.gz
 
 The concatenated files are:
 
