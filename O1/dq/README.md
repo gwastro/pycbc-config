@@ -181,3 +181,56 @@ The following segments had no omicron triggers because of a loug glitch right be
 C00 gating files:
 
 No missing gating files
+
+Production gating files for GW150914 16 coincident day analysis for C01 data
+
+  * H1-gating_C01_SNR300-1126051217-2332800.txt.gz
+  * H1-gating_C01_SNR300-1128384017-999000.txt.gz
+  * L1-gating_C01_SNR300-1126051217-2332800.txt.gz
+  * L1-gating_C01_SNR300-1128384017-999000.txt.gz
+
+The concatenated files are:
+
+  * H1-gating_C01_SNR300-1126051217-1126051217.txt.gz
+  * L1-gating_C01_SNR300-1126051217-1126051217.txt.gz
+
+The following segments had omicron triggers missing, however the locks are too short to analyse by the search:
+
+  * [1126910311 ... 1126910326)
+  * [1127480722 ... 1127480842)
+  * [1128303869 ... 1128303898)
+  * [1128929812 ... 1128929841)
+The following segments had omicron triggers missing, however they are during bad RF45 time which is CAT1 vetoed:
+  * [1127321689 ... 1127321749)
+  * [1127473394 ... 1127473454)
+  * [1127473514 ... 1127473934)
+  * [1127474054 ... 1127474174)
+  * [1127474234 ... 1127474278)
+
+### L1
+
+C01 gating files:
+
+The following segments had omicron triggers missing because they fall during a time when the missing data flag is active:
+
+  * [1127128494 ... 1127128594)
+  * [1127353006 ... 1127353106)
+  * [1127387758 ... 1127387858)
+  * [1127435758 ... 1127435858)
+  * [1127687854 ... 1127687954)
+  * [1128122030 ... 1128122073)
+  * [1128122088 ... 1128122130)
+  * [1128320814 ... 1128320914)
+
+The following segments had omicron triggers missing because the segments are too short to analyse:
+
+  * [1126414893 ... 1126414951)
+  * [1126733215 ... 1126733223)
+  * [1127464888 ... 1127464896)
+  * [1128207191 ... 1128207194)
+
+The following segments had no omicron triggers because of a loug glitch right before lockloss. They are covered by a CAT1 flag which removes bad data before lockloss: 
+    
+  * [1126771410 ... 1126771418)
+  * [1127423152 ... 1127423153)
+  * [1127613326 ... 1127613327)
