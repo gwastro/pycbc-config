@@ -1,0 +1,99 @@
+** 2016-03-18
+
+Version 1 of injection files produced.
+Output is:
+
+surveyed spacetime volume: 0.770691 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh05_aligned
+(accept,reject)=(112020,3584528)
+written to file U_dVdzo1pz_nsbh05_aligned_injections_v1.xml.gz
+U_dVdzo1pz_nsbh05_aligned acceptance rate: 0.0303039
+U_dVdzo1pz_nsbh05_aligned actual surveyed spacetime volume: 0.023355 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh05_isotropic
+(accept,reject)=(112118,4008118)
+written to file U_dVdzo1pz_nsbh05_isotropic_injections_v1.xml.gz
+U_dVdzo1pz_nsbh05_isotropic acceptance rate: 0.0272115
+U_dVdzo1pz_nsbh05_isotropic actual surveyed spacetime volume: 0.0209717 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh10_aligned
+(accept,reject)=(112075,2032805)
+written to file U_dVdzo1pz_nsbh10_aligned_injections_v1.xml.gz
+U_dVdzo1pz_nsbh10_aligned acceptance rate: 0.0522523
+U_dVdzo1pz_nsbh10_aligned actual surveyed spacetime volume: 0.0402704 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh10_isotropic
+(accept,reject)=(112130,2953707)
+written to file U_dVdzo1pz_nsbh10_isotropic_injections_v1.xml.gz
+U_dVdzo1pz_nsbh10_isotropic acceptance rate: 0.036574
+U_dVdzo1pz_nsbh10_isotropic actual surveyed spacetime volume: 0.0281873 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh30_aligned
+(accept,reject)=(112077,1261290)
+written to file U_dVdzo1pz_nsbh30_aligned_injections_v1.xml.gz
+U_dVdzo1pz_nsbh30_aligned acceptance rate: 0.0816075
+U_dVdzo1pz_nsbh30_aligned actual surveyed spacetime volume: 0.0628941 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh30_isotropic
+(accept,reject)=(112132,2901812)
+written to file U_dVdzo1pz_nsbh30_isotropic_injections_v1.xml.gz
+U_dVdzo1pz_nsbh30_isotropic acceptance rate: 0.0372044
+U_dVdzo1pz_nsbh30_isotropic actual surveyed spacetime volume: 0.0286731 Gpc^3 yr
+
+
+** 2016-03-20
+
+The isotropic distribution was messed up.
+Fixed this and rearan to get v2 versions of *isotroppic* sets:
+
+surveyed spacetime volume: 0.770691 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh05_isotropic
+(accept,reject)=(112087,4272787)
+written to file U_dVdzo1pz_nsbh05_isotropic_injections_v2.xml.gz
+U_dVdzo1pz_nsbh05_isotropic acceptance rate: 0.0255622
+U_dVdzo1pz_nsbh05_isotropic actual surveyed spacetime volume: 0.0197006 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh10_isotropic
+(accept,reject)=(112073,3332765)
+written to file U_dVdzo1pz_nsbh10_isotropic_injections_v2.xml.gz
+U_dVdzo1pz_nsbh10_isotropic acceptance rate: 0.0325336
+U_dVdzo1pz_nsbh10_isotropic actual surveyed spacetime volume: 0.0250734 Gpc^3 yr
+
+population U_dVdzo1pz_nsbh30_isotropic
+(accept,reject)=(112058,2991714)
+written to file U_dVdzo1pz_nsbh30_isotropic_injections_v2.xml.gz
+U_dVdzo1pz_nsbh30_isotropic acceptance rate: 0.0361038
+U_dVdzo1pz_nsbh30_isotropic actual surveyed spacetime volume: 0.0278249 Gpc^3 yr
+
+
+** 2016-03-23
+
+BNS injection sets added:
+
+$ python bnsinjcut.py 
+maximum redshift: 0.10509
+maximum luminosity distance: 500 Mpc
+surveyed spacetime volume: 0.127818 Gpc^3 yr
+
+population U_dVdzo1pz_bns_normal_high_spin
+(accept,reject)=(112077,2455652)
+written to file U_dVdzo1pz_bns_normal_high_spin_injections_v1.xml.gz
+U_dVdzo1pz_bns_normal_high_spin acceptance rate: 0.0436483
+U_dVdzo1pz_bns_normal_high_spin actual surveyed spacetime volume: 0.00557903 Gpc^3 yr
+
+population U_dVdzo1pz_bns_normal_low_spin
+(accept,reject)=(112063,2449216)
+written to file U_dVdzo1pz_bns_normal_low_spin_injections_v1.xml.gz
+U_dVdzo1pz_bns_normal_low_spin acceptance rate: 0.0437528
+U_dVdzo1pz_bns_normal_low_spin actual surveyed spacetime volume: 0.00559238 Gpc^3 yr
+
+population U_dVdzo1pz_bns_uniform_low_spin
+(accept,reject)=(112149,932438)
+written to file U_dVdzo1pz_bns_uniform_low_spin_injections_v1.xml.gz
+U_dVdzo1pz_bns_uniform_low_spin acceptance rate: 0.107362
+U_dVdzo1pz_bns_uniform_low_spin actual surveyed spacetime volume: 0.0137228 Gpc^3 yr
+$ 
+
+
