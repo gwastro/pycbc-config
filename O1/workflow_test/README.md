@@ -16,7 +16,7 @@ ${TEST_INI_PREFIX}/one_injection_run.ini \
 ${TEST_INI_PREFIX}/short_gps_interval.ini \
 --config-overrides \
 "results_page:output-path:${OUTPUT_PATH}" \
-"workflow-coincidence:background-bins:bns:chirp:1.74 edge:SEOBNRv2Peak:220 bulk:total:150" \
+"workflow-coincidence:background-bins:bns:chirp:lt1.74 edge:SEOBNRv2Peak:lt220 bulk:total:lt150" \
 "workflow-tmpltbank:tmpltbank-pregenerated-bank:https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/download/master/O1/workflow_test/H1L1-BIG_TEST_BANK-1129383017-1371600.xml.gz"
 
 cd output/
