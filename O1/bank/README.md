@@ -32,6 +32,13 @@ under `ER8/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200` and plotted above.
 This bank targets NS-NS sources and NS-BH sources that may produce a nonzero
 remnant disk mass.  This idea is discussed in [this paper](http://arxiv.org/abs/1406.6057)
 
+#### H1L1-EM_BRIGHT_BANK_MAXMBH25_NS0p05_ER8HMPSD_SBANK-1126033217-223200.xml.gz
+
+This bank is an improvement of the previous one.  The improvement is achieved
+by using a modified version of lalapps_cbc_sbank (that selects only potentially
+EM bright templates) to fill in holes in the bank left behind by the geometric
+placement code.
+
 ## Building the uberbank
 
 [Uberbank wiki page](https://www.lsc-group.phys.uwm.edu/ligovirgo/cbcnote/ER8/pycbc_offline/combined_bank#Construction)
@@ -70,4 +77,4 @@ The command line to produce the EM bright bank is the following:
                 --remnant-mass-threshold 0\
                 --output-file H1L1-EM_BRIGHT_BANK_MAXMBH25_NS0p05_ER8HMPSD-1126033217-223200.xml.gz \
                 --log-path /scratch/$USER/log \
-                --psd-file <path-to>/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.txt`.
+                --psd-file <path-to>/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.txt`
