@@ -1,5 +1,5 @@
 This directory contains a set of configuration files that can be used for
-running small workflow tests to verify releases of the code. To use these
+running small workflow tests to verify releases of the code. Before running the workflow, you should make sure that your ```LAL_DATA_PATH``` is set correctly so that the code can find the ROM data. To use these
 files to test a workflow, set the variable ```OUTPUT_PATH``` and run the
 commands:
 ```shell
@@ -10,7 +10,7 @@ pycbc_make_coinc_search_workflow --workflow-name test-workflow \
 --config-files \
 ${INI_PREFIX}/executables.ini \
 ${INI_PREFIX}/analysis.ini \
-${INI_PREFIX}/data.ini \
+${INI_PREFIX}/data_C02.ini \
 ${INI_PREFIX}/plotting.ini \
 ${TEST_INI_PREFIX}/one_injection_run.ini \
 ${TEST_INI_PREFIX}/short_gps_interval.ini \
