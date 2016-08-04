@@ -458,7 +458,7 @@
 			1,"Thunderstorm caused range to drop before lockloss",0,"process:process_id:33","DCH-THUNDERSTORM_RANGE_DIP",1,0,1123858816,"L1",1126051216,
 			1,"Earthquake caused ETMY to start ringing",0,"process:process_id:34","DCH-EARTHQUAKE_ETMY_RINGING",1,0,1123858816,"L1",1126051216,
 			1,"CW Injections turning on and off during science mode",0,"process:process_id:35","DCH-CW_HARDWARE_INJECTION_STATE_CHANGING",1,0,1123858816,"L1",1126051216,
-			2,"Saturations in the SUSETMY model channels",50,"process:process_id:36","DCH-ETMY_SATURATION",2,-8,1123858817,"H1",0
+			2,"Saturations in the SUSETMY model channels",113,"process:process_id:36","DCH-ETMY_SATURATION",2,-17,1123858817,"H1",0
 		</Stream>
 	</Table>
 </LIGO_LW>
