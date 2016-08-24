@@ -211,7 +211,7 @@
 			3,"CBC hardware injections",8,"process:process_id:10","ODC-INJECTION_CBC",1,-8,1126051217,"L1",0,
 			1,"Beckhoff chassis problems",0,"process:process_id:11","DCH-EY_BECKHOFF_CHASSIS_PROBLEM",1,0,1126331060,"H1",1126365950,
 			1,"RF45 AM stabilization issues",0,"process:process_id:12","DCH-RF45_AM_STABILIZATION",3,0,1126051217,"H1",0,
-			2,"Saturations in the SUSETMY model channels",50,"process:process_id:13","DCH-ETMY_SATURATION",2,-8,1126051217,"H1",0,
+			2,"Saturations in the SUSETMY model channels",113,"process:process_id:13","DCH-ETMY_SATURATION",2,-17,1126051217,"H1",0,
 			1,"Offline omicron processes fail due to 7s bad data at end of lock",0,"process:process_id:14","DCH-BAD_OMICRON_OFFLINE_C00",1,0,1126051217,"L1",1127271617
 		</Stream>
 	</Table>
