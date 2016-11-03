@@ -113,11 +113,18 @@ https://atlas${X}.atlas.aei.uni-hannover.de/pegasus/u/${USER_NAME}/
 ```
 where ```${X}``` is the number of the machine from which you submited your dax (e.g., ```atlas8```) and ```${USER_NAME}``` is your user name on atlas.
 
- * On sugar:
+ * On sugwg:
 ```
-https://sugar.phy.syr.edu/pegasus/u/${USER_NAME}/
+https://sugwg-${X}.phy.syr.edu/pegasus/u/${USER_NAME}/
 ```
-where ```${USER_NAME}``` is your user name on sugar.
+
+where ```${X}``` is the name of the machine from which you submited your dax (e.g., ```condor``` or ```osg```) and ```${USER_NAME}``` is your username on sugwg.
+
+ * On CIT (NOTE: Pegasus may not be at the same level required for PyCBC as of Nov 3, 2016):
+```
+https://ldas-${X}.ligo.caltech.edu/pegasus/u/${USER_NAME}/
+```
+where ```${X}``` is the name of the machine from which you submitted your dax (e.g., ```pc-dev3``` or ```grid```) and ```${USER_NAME}``` is your username on CIT.
 
 The workflow label in the table corresponds to the ```WORKFLOW_NAME``` you used when submitting the dax. Click on the one you used for this workflow;
 that will take you to a summary of the jobs.
