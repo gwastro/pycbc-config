@@ -120,6 +120,12 @@ https://sugwg-${X}.phy.syr.edu/pegasus/u/${USER_NAME}/
 
 where ```${X}``` is the name of the machine from which you submited your dax (e.g., ```condor``` or ```osg```) and ```${USER_NAME}``` is your username on sugwg.
 
+ * On CIT (ldas-grid):
+```
+https://ldas-grid.ligo.caltech.edu/pegasus/u/${USER_NAME}/
+```
+where ```${USER_NAME}``` is your username on ldas-grid.
+
 The workflow label in the table corresponds to the ```WORKFLOW_NAME``` you used when submitting the dax. Click on the one you used for this workflow;
 that will take you to a summary of the jobs.
 
