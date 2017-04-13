@@ -16,12 +16,14 @@ def filter_injections(mass1, mass2, spin1z, spin2z):
                                     numpy.inf)
 
     class Dummy(object):
-        flow = 15.
-        fhigh_max = 1024
-        noise_model = noise_m
-        optimize_flow = 0.995
+        pass
 
     bank = Dummy()
+    bank.flow = 15.
+    bank.fhigh_max = 1024
+    bank.noise_model = noise_m
+    bank.optimize_flow = 0.995
+
     outs = []
     for i in xrange(len(mass1)):
         t = SEOBNRv4ROMTemplate(mass1[i], mass2[i], spin1z[i], spin2z[i],
