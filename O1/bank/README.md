@@ -1,7 +1,8 @@
 # ER8 template banks
 
 Here you can find scripts for building the uberbank for the combined offline
-PyCBC search over ER8 as well as actual bank files.
+PyCBC search over ER8 and the EM-bright bank for the online and offlien PyCBC
+search over ER8 in coincidence with GRB events, as well as actual bank files.
 
 ## Description of banks provided here
 
@@ -24,7 +25,21 @@ under `ER8/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200` and plotted here:
 
 The various steps of the construction of this bank are on Atlas under `~tito/er8/bank/*_ns0.05_er8psd`.
 
-## Building the bank
+#### H1L1-EM_BRIGHT_BANK_MAXMBH25_NS0p05_ER8HMPSD-1126033217-223200
+
+Bank constructed using the harmonic-mean ER8 PSD available in this repository
+under `ER8/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200` and plotted above.
+This bank targets NS-NS sources and NS-BH sources that may produce a nonzero
+remnant disk mass.  This idea is discussed in [this paper](http://arxiv.org/abs/1406.6057)
+
+#### H1L1-EM_BRIGHT_BANK_MAXMBH25_NS0p05_ER8HMPSD_SBANK-1126033217-223200.xml.gz
+
+This bank is an improvement of the previous one.  The improvement is achieved
+by using a modified version of lalapps_cbc_sbank (that selects only potentially
+EM bright templates) to fill in holes in the bank left behind by the geometric
+placement code.
+
+## Building the uberbank
 
 [Uberbank wiki page](https://www.lsc-group.phys.uwm.edu/ligovirgo/cbcnote/ER8/pycbc_offline/combined_bank#Construction)
 
@@ -36,3 +51,30 @@ a shell script to make the process easier. Download the script, edit the paths
 to the PSD and bank to verify, and run it. The banksim config files will be
 downloaded and the banksims will be prepared automatically. Then just submit
 the DAG to run the full set of banksims.
+
+## Building the EM bright bank 
+
+The command line to produce the EM bright bank is the following:
+
+`pycbc_geom_aligned_bank \
+                --write-metric \
+                --verbose \
+                --min-match 0.97 \
+                --pn-order threePointFivePN \
+                --f0 60 \
+                --f-low 30 \
+                --f-upper 1000 \
+                --delta-f 0.001 \
+                --min-mass1 1 \
+                --max-mass1 25 \
+                --min-mass2 1 \
+                --max-mass2 2.8346480922 \
+                --ns-bh-boundary-mass 2.8346480922 \
+                --max-ns-spin-mag 0.05 \
+                --max-bh-spin-mag 0.999 \
+                --filter-points \
+                --use-eos-max-ns-mass \
+                --remnant-mass-threshold 0\
+                --output-file H1L1-EM_BRIGHT_BANK_MAXMBH25_NS0p05_ER8HMPSD-1126033217-223200.xml.gz \
+                --log-path /scratch/$USER/log \
+                --psd-file <path-to>/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.txt`
