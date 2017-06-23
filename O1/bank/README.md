@@ -1,7 +1,7 @@
-# ER8 template banks
+# ER8/O1 template banks
 
 Here you can find scripts for building the uberbank for the combined offline
-PyCBC search over ER8 and the EM-bright bank for the online and offlien PyCBC
+PyCBC search over ER8/O1 and the EM-bright bank for the online and offlien PyCBC
 search over ER8 in coincidence with GRB events, as well as actual bank files.
 
 ## Description of banks provided here
@@ -19,7 +19,7 @@ The various steps of the construction of this bank are on Atlas under `~tito/er8
 #### H1L1-UBERBANK_MAXM100_NS0p05_ER8HMPSD-1126033217-223200
 
 Bank constructed using the harmonic-mean ER8 PSD available in this repository
-under `ER8/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200` and plotted here:
+at [O1/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.xml.gz](https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/O1/psd/H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.xml.gz) and plotted here:
 
 ![](H1L1-ER8_HARM_MEAN_PSD-1126033217-223200.png)
 
