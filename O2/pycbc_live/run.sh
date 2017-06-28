@@ -71,4 +71,4 @@ pycbc_live \
 --enable-production-gracedb-upload \
 --enable-gracedb-upload \
 --enable-single-detector-upload \
---start-time 1181982616
+--round-start-time 4
