@@ -14,3 +14,17 @@ The files
 are the primary workflow configuration files. All three are required to run
 the analysis.
 
+To directly pull these files at runtime you can do something like:
+
+```
+GITHUB_URL="https://raw.githubusercontent.com/ligo-cbc/pycbc-config/v1.7.1/O2/pipeline"
+
+pycbc_make_coinc_search_workflow \
+  --workflow-name ${WORKFLOW_NAME} --output-dir output \
+  --config-files \
+  ${GITHUB_URL}/analysis.ini \
+  ${GITHUB_URL}/data.ini \
+  ${GITHUB_URL}/executables.ini \
+  ${GITHUB_URL}/injections.ini \
+  ${GITHUB_URL}/plotting.ini \
+  ```
