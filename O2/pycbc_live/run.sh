@@ -33,7 +33,7 @@ pycbc_live \
 --highpass-reduction 200 \
 --psd-samples 30 \
 --max-psd-abort-distance 300 \
---min-psd-abort-distance 10 \
+--min-psd-abort-distance 20 \
 --psd-abort-difference .15 \
 --psd-recalculate-difference .01 \
 --psd-inverse-length 3.5 \
