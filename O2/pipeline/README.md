@@ -17,7 +17,8 @@ the analysis.
 To directly pull these files at runtime you can do something like:
 
 ```
-GITHUB_URL="https://raw.githubusercontent.com/ligo-cbc/pycbc-config/v1.7.1/O2/pipeline"
+GITHUB_TAG="SET_THIS_TO_SOMETHING_SANE"
+GITHUB_URL="https://raw.githubusercontent.com/ligo-cbc/pycbc-config/${GITHUB_TAG}/O2/pipeline"
 
 pycbc_make_coinc_search_workflow \
   --workflow-name ${WORKFLOW_NAME} --output-dir output \
