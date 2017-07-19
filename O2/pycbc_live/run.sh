@@ -17,6 +17,7 @@ pycbc_live \
 --sample-rate 2048 \
 --enable-bank-start-frequency \
 --low-frequency-cutoff 20 \
+--max-length 128 \
 --approximant "SPAtmplt:mtotal<4" "SEOBNRv4_ROM:else" \
 --chisq-bins "0.9 * get_freq('fSEOBNRv4Peak',params.mass1,params.mass2,params.spin1z,params.spin2z) ** (2.0 / 3.0)" \
 --snr-abort-threshold 500 \
@@ -39,13 +40,13 @@ pycbc_live \
 --psd-segment-length 4 \
 --trim-padding .5 \
 --store-psd \
---state-channel H1:GDS-CALIB_STATE_VECTOR L1:GDS-CALIB_STATE_VECTOR \
---channel-name H1:GDS-CALIB_STRAIN L1:GDS-CALIB_STRAIN \
---data-quality-channel H1:DMT-DQ_VECTOR L1:DMT-DQ_VECTOR \
---data-quality-flags OMC_DCPD_ADC_OVERFLOW ETMY_ESD_DAC_OVERFLOW \
+--state-channel H1:GDS-CALIB_STATE_VECTOR L1:GDS-CALIB_STATE_VECTOR V1:DQ_ANALYSIS_STATE_VECTOR \
+--channel-name H1:GDS-CALIB_STRAIN L1:GDS-CALIB_STRAIN V1:Hrec_hoft_16384Hz \
+--data-quality-channel H1:DMT-DQ_VECTOR L1:DMT-DQ_VECTOR V1:DQ_ANALYSIS_STATE_VECTOR \
+--data-quality-flags H1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW L1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW V1:VIRGO_GOOD_DQ \
 --data-quality-padding 1.0 \
---increment-update-cache H1:/dev/shm/llhoft/H1/ L1:/dev/shm/llhoft/L1/ \
---frame-src H1:/dev/shm/llhoft/H1/* L1:/dev/shm/llhoft/L1/* \
+--increment-update-cache H1:/dev/shm/llhoft/H1/ L1:/dev/shm/llhoft/L1/ V1:/dev/shm/llhoft/V1/ \
+--frame-src H1:/dev/shm/llhoft/H1/* L1:/dev/shm/llhoft/L1/* V1:/dev/shm/llhoft/V1/* \
 --processing-scheme cpu:4 \
 --fftw-input-float-wisdom-file float_02.wis \
 --fftw-input-double-wisdom-file double_02.wis \
@@ -71,4 +72,6 @@ pycbc_live \
 --enable-production-gracedb-upload \
 --enable-gracedb-upload \
 --enable-single-detector-upload \
---round-start-time 4
+--round-start-time 4 \
+--upload-snr-series \
+--followup-detectors V1
