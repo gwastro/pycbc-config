@@ -9,6 +9,7 @@ The repository is organized by run tag:
  * **S6** Configuration files for reproducing the S6 analysis.
  * **ER8** Configuration files for Engineering Run 8
  * **O1** Configuration files for Observing Run 1
+ * **O2** Configuration files for Observing Run 2
 
 with each run containing directories for the configuration files
 
