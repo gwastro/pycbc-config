@@ -12,7 +12,7 @@ def filter_injections(mass1, mass2, spin1z, spin2z):
     psd_data = numpy.loadtxt('/home/spxiwh/aLIGO/O2/template_banks/O2_trials/H1L1-AVERAGE_PSD-1163174417-604800.txt.gz')
     f_orig, psddata = psd_data[:,0], psd_data[:,1]
     interpolator = UnivariateSpline(f_orig, numpy.log(psddata), s=0)
-    noise_m = lambda u,g: numpy.where(g < 1024, numpy.exp(interpolator(g)),
+    noise_m = lambda g: numpy.where(g < 1024, numpy.exp(interpolator(g)),
                                     numpy.inf)
 
     class Dummy(object):
