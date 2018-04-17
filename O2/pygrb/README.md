@@ -13,9 +13,8 @@ The files
  * postprocessing_o2.ini
 
 are the primary workflow configuration files. All three are required to run
-the analysis. In addition, specific options for running on offline/online
-data are included in the respective files. Trigger-specific options will also
-be required.
+the analysis. In addition, specific options for running on offline data are
+included. Trigger-specific options will also be required.
 
 An template workflow generation command is given below:
 
