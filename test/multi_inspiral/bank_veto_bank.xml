@@ -18,7 +18,7 @@
 		<Column Type="lstring" Name="ifos"/>
 		<Column Type="int_8s" Name="process_id"/>
 		<Stream Name="processgroup:process:table" Type="Local" Delimiter=",">
-			"tmpltbank","645a41a2fa3df783221bd9988f70b0cee1861d56","UNCLEAN: some modifications were not commited!",946819435," ",0,"titan1.atlas.aei.uni-hannover.de","spxiwh",16799,956049146,956049411,0,"lalapps","H1",0
+			"tmpltbank","645a41a2fa3df783221bd9988f70b0cee1861d56","",946819435," ",0,"titan1.atlas.aei.uni-hannover.de","spxiwh",16799,956049146,956049411,0,"lalapps","H1",0
 		</Stream>
 	</Table>
 	<Table Name="process_paramsgroup:process_params:table">
