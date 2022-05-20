@@ -19,6 +19,9 @@ Variable low-frequency cutoff, defined by a 0.5% range loss with respect to
 starting at 15 Hz. Value stored in the `alpha6` column of the `sngl_inspiral`
 table.
 
+The bank design and its characterization are also described in
+[Dal Canton & Harry, 2017](https://arxiv.org/abs/1705.01845).
+
 ## Building the bank
 
 First edit the paths to the PSD files in `config.ini` and point them the actual
